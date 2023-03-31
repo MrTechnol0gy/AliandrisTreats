@@ -251,6 +251,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Platform.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,1</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>45,8,90,15</rect>
+                <key>scale9Paddings</key>
+                <rect>45,8,90,15</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../../../../Aseprite/AliandrisTreats/Road.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -278,6 +293,7 @@
             <filename>../../../../Aseprite/AliandrisTreats/Road.png</filename>
             <filename>../../../../Aseprite/AliandrisTreats/Cloud.png</filename>
             <filename>../../../../Aseprite/AliandrisTreats/HighRise_02.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Platform.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

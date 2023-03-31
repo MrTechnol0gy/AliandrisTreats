@@ -14,7 +14,8 @@
     [364, 41, 32, 58, 0, -15, 58],
     [398, 41, 32, 58, 0, -15, 58],
     [432, 41, 59, 124, 0, -31, 124],
-    [1, 411, 300, 60, 0, 0, 60]
+    [1, 411, 180, 30, 0, 0, 30],
+    [183, 411, 300, 60, 0, 0, 60]
 ],
 
 "animations": {
@@ -24,11 +25,12 @@
     "Forest": { "frames": [3] },
     "HighRise": { "frames": [4, 5, 6] },
     "HighRise_Lit": { "frames": [7] },
-    "Road": { "frames": [8] }
+    "Platform": { "frames": [8] },
+    "Road": { "frames": [9] }
 },
 
 "texturepacker": [
-        "SmartUpdateHash: $TexturePacker:SmartUpdate:a67910a98682f014606389aaf7f76398:4f1485f9d34edbf822dc753fe5cd659f:97737d53c8dea565e10330f57fec03f3$",
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:ccc9d45495df640959630b42d9b284a7:4067b97dbf237100ad5f6bdc5a3e5a76:97737d53c8dea565e10330f57fec03f3$",
         "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
 ]
 
