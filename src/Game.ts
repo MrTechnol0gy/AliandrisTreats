@@ -6,6 +6,12 @@ import "createjs";
 // importing game constants
 import { STAGE_WIDTH, STAGE_HEIGHT, FRAME_RATE, ASSET_MANIFEST } from "./Constants";
 import { AssetManager } from "./AssetManager";
+import { Backgrounds } from "./Backgrounds";
+import { Layer_Buildings } from "./Layer_Buildings";
+import { Layer_Clouds } from "./Layer_Clouds";
+import { Layer_Forest } from "./Layer_Forest";
+import { Layer_Foreground } from "./Layer_Foreground";
+import { Layer_Road } from "./Layer_Road";
 
 // game setup variables
 let stage:createjs.StageGL;
@@ -13,14 +19,58 @@ let canvas:HTMLCanvasElement;
 let assetManager:AssetManager;
 
 // game object variables
-// ...
+let backgrounds:Backgrounds;
+let buildings:Layer_Buildings[];
+let clouds:Layer_Clouds[];
+let forest:Layer_Forest[];
+let foreground:Layer_Foreground[];
+let road:Layer_Road[];
 
 // --------------------------------------------------- event handler
 function onReady(e:createjs.Event):void {
     console.log(">> all assets loaded – ready to add sprites to game");
 
+    buildings = [];
+    forest = [];
+    foreground = [];
+    clouds = [];
+    road = [];
+    
     // construct game objects here
-    // ...
+    for (let n:number = 0; n < 5; n++)
+    {
+        forest[n] = new Layer_Forest(stage, assetManager);
+        forest[n].positionMe(0 + (n * 300), 600);
+    }
+
+    for (let n:number = 0; n < 6; n++)
+    {
+        clouds[n] = new Layer_Clouds(stage, assetManager);
+        clouds[n].positionMe(0 + (n * 200), 100); 
+    }
+
+    for (let n:number = 0; n < 3; n++)
+    {
+        buildings[n] = new Layer_Buildings(stage, assetManager);
+        buildings[n].positionMe(0 + (n * 300), 550);
+        buildings[n]._sprite.scaleX = 2;
+        buildings[n]._sprite.scaleY = 2;
+        buildings[n].id = n + 3;
+    }
+
+    for (let n:number = 0; n < 5; n++)
+    {
+        road[n] = new Layer_Road(stage, assetManager);
+        road[n].positionMe(0 + (n * 300), 600); 
+    }
+
+    for (let n:number = 0; n < 10; n++)
+    {
+        foreground[n] = new Layer_Foreground(stage, assetManager);
+        foreground[n].positionMe(0 + (n * 100), 600);
+    }
+
+    
 
     // startup the ticker
     createjs.Ticker.framerate = FRAME_RATE;
@@ -33,7 +83,26 @@ function onTick(e:createjs.Event) {
     document.getElementById("fps").innerHTML = String(createjs.Ticker.getMeasuredFPS());
 
     // this is your game loop!
-    // ...
+    for (let n:number = 0; n < 6; n++)
+    {
+        clouds[n].update();
+    }
+    for (let n:number = 0; n < 4; n++)
+    {
+        forest[n].update();
+    }
+    for (let n:number = 0; n < 3; n++)
+    {
+        buildings[n].update();
+    }
+    for (let n:number = 0; n < 4; n++)
+    {
+        road[n].update();
+    }
+    for (let n:number = 0; n < 10; n++)
+    {
+        foreground[n].update();
+    }
 
     // update the stage
     stage.update();
