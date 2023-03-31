@@ -1,0 +1,49 @@
+{
+
+"images": [
+    "Aliandris.png"
+],
+
+"framerate": 30,
+"frames": [
+    [1, 1, 43, 40, 0, 18, 20],
+    [1, 1, 43, 40, 0, 18, 20],
+    [46, 1, 45, 40, 0, 18, 20],
+    [46, 1, 45, 40, 0, 18, 20],
+    [1, 43, 59, 38, 0, 30, 18],
+    [1, 43, 59, 38, 0, 30, 18],
+    [62, 43, 59, 35, 0, 30, 18],
+    [1, 83, 59, 38, 0, 30, 18],
+    [1, 83, 59, 38, 0, 30, 18],
+    [62, 83, 59, 38, 0, 30, 18],
+    [62, 83, 59, 38, 0, 30, 18],
+    [1, 123, 59, 38, 0, 30, 18],
+    [1, 123, 59, 38, 0, 30, 18],
+    [62, 123, 59, 38, 0, 30, 18],
+    [62, 123, 59, 38, 0, 30, 18]
+],
+
+"animations": {
+    "Aliandris_Idle1": { "frames": [0] },
+    "Aliandris_Idle2": { "frames": [1] },
+    "Aliandris_Idle3": { "frames": [2] },
+    "Aliandris_Idle4": { "frames": [3] },
+    "Aliandris_Idle_Stand": { "frames": [4] },
+    "Aliandris_Walk": { "frames": [5] },
+    "Aliandris_Jump": { "frames": [6] },
+    "Aliandris_Walk1": { "frames": [7] },
+    "Aliandris_Walk2": { "frames": [8] },
+    "Aliandris_Walk3": { "frames": [9] },
+    "Aliandris_Walk4": { "frames": [10] },
+    "Aliandris_Walk5": { "frames": [11] },
+    "Aliandris_Walk6": { "frames": [12] },
+    "Aliandris_Walk7": { "frames": [13] },
+    "Aliandris_Walk8": { "frames": [14] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:d7c3ce8fd65487cd640fb6ec31e1e00c:d302f173d1c3a78759c04c751e0e6864:24b6833e1b45f1ca38a36f9c4430b2ad$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

@@ -1,0 +1,35 @@
+{
+
+"images": [
+    "Backgrounds.png"
+],
+
+"framerate": 30,
+"frames": [
+    [1, 1, 64, 38, 0, 0, 38],
+    [67, 1, 87, 30, 0, -1, 30],
+    [156, 1, 90, 19, 0, 0, 19],
+    [1, 41, 300, 368, 0, 0, 368],
+    [303, 41, 59, 124, 0, -31, 124],
+    [364, 41, 32, 58, 0, -15, 58],
+    [398, 41, 32, 58, 0, -15, 58],
+    [432, 41, 59, 124, 0, -31, 124],
+    [1, 411, 300, 60, 0, 0, 60]
+],
+
+"animations": {
+    "Bush1": { "frames": [0] },
+    "Cloud": { "frames": [1] },
+    "Fence": { "frames": [2] },
+    "Forest": { "frames": [3] },
+    "HighRise": { "frames": [4, 5, 6] },
+    "HighRise_Lit": { "frames": [7] },
+    "Road": { "frames": [8] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:a67910a98682f014606389aaf7f76398:4f1485f9d34edbf822dc753fe5cd659f:97737d53c8dea565e10330f57fec03f3$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

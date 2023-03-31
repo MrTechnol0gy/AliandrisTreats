@@ -2,13 +2,14 @@
 
 -Spritesheet-
 Create Allie Sprite (DONE)
-Create PickUp Sprite
-Create background Sprites
-    Bushes/Fences
-    Cityscape/Apt buildings
-    Hills/Forest
-    Clouds
-Platforms
+Create PickUp Sprite (DONE)
+Create background Sprites   (DONE)
+    Bushes/Fences (DONE)
+    Cityscape/Apt buildings (DONE)
+    Road        (DONE)
+    Hills/Forest (DONE)
+    Clouds  (DONE)
+Platforms   (DONE)
 FinishLine
 Main Menu
     Start Button
