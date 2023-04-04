@@ -21,6 +21,7 @@ export class Layer_Foreground extends Backgrounds
     public update():void
     {
         this._sprite.x -= this._speed * 4;
+        this.stateUpdate();
         this.wrapCheck();
     }
     

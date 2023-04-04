@@ -21,7 +21,7 @@ export class Layer_BuildingsTwo extends Backgrounds
     // ------------- public methods
     protected wrapCheck():void
     {
-        if (this._sprite.x < -this._sprite.getBounds().width / 2)
+        if (this._sprite.x < -this._sprite.getBounds().width * 2)
         {
             this._sprite.x = STAGE_WIDTH; 
         }
@@ -29,6 +29,7 @@ export class Layer_BuildingsTwo extends Backgrounds
     public update():void
     {
         this._sprite.x -= this._speed;
+        this.stateUpdate();
         this.wrapCheck();
     }
 }

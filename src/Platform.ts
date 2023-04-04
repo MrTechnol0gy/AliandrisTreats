@@ -1,36 +1,37 @@
 import { AssetManager } from "./AssetManager";
+import { Backgrounds } from "./Backgrounds";
 import { STAGE_WIDTH } from "./Constants";
+import { randomMe } from "./Toolkit";
 
-export class Backgrounds
-{
+export class Platform
+{    
     public static STATE_ACTIVE:number = 0;
     public static STATE_INACTIVE:number = 1;
 
-    public _sprite:createjs.Sprite;
-    protected _state:number;
-    protected stage:createjs.StageGL;
-    protected _speed:number;
-    protected _width:number;
+    //private property variables
+    private _sprite:createjs.Sprite;  
+    private _speed:number; 
+    private _state:number; 
+
+    //other globals
+    private stage:createjs.StageGL;
 
     constructor(stage:createjs.StageGL, assetManager:AssetManager)
     {
-        this.stage = stage;        
-        this._speed = 1;
-        this._state = Backgrounds.STATE_INACTIVE; 
+        //initialization of properties
+        this.stage = stage;  
+        this._speed = 1; 
+        this._state = Platform.STATE_INACTIVE;     
+
+        this._sprite = assetManager.getSprite("backgrounds", "Platform");
+
+        stage.addChild(this._sprite);
     }
-
-    // ------------------ gets/sets
-
+    // ---------- gets/sets
     get sprite()
     {
         return this._sprite;
     }
-
-    get state()
-    {
-        return this._state;
-    }
-    
     get speed()
     {
         return this._speed;
@@ -40,8 +41,6 @@ export class Backgrounds
     {
         this._speed = value;
     }
-
-    // ------------------ public methods
 
     public positionMe(x:number, y:number):void 
     {
@@ -56,7 +55,6 @@ export class Backgrounds
             this._sprite.x = STAGE_WIDTH;            
         }
     }
-
     protected stateUpdate():void
     {
         if (this._sprite.x > STAGE_WIDTH || this._sprite.x < 0)
@@ -71,7 +69,7 @@ export class Backgrounds
 
     public update():void
     {
-        this._sprite.x -= this._speed;
+        this._sprite.x -= this._speed + randomMe(1,2);
         this.stateUpdate();
         this.wrapCheck();
     }

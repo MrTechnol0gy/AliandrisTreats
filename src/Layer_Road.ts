@@ -21,6 +21,7 @@ export class Layer_Road extends Backgrounds
     public update():void
     {
         this._sprite.x -= this._speed * 3;
+        this.stateUpdate();
         this.wrapCheck();
     }
 }

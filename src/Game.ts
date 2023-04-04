@@ -14,6 +14,8 @@ import { Layer_Foreground } from "./Layer_Foreground";
 import { Layer_Road } from "./Layer_Road";
 import { randomMe } from "./Toolkit";
 import { Layer_BuildingsTwo } from "./Layer_BuildingsTwo";
+import { Platform } from "./Platform";
+import { Aliandris } from "./Aliandris";
 
 // game setup variables
 let stage:createjs.StageGL;
@@ -28,6 +30,8 @@ let clouds:Layer_Clouds[];
 let forest:Layer_Forest[];
 let foreground:Layer_Foreground[];
 let road:Layer_Road[];
+let platform:Platform[];
+let aliandris:Aliandris;
 
 // --------------------------------------------------- event handler
 function onReady(e:createjs.Event):void {
@@ -39,6 +43,7 @@ function onReady(e:createjs.Event):void {
     foreground = [];
     clouds = [];
     road = [];
+    platform = [];
     
     // construct game objects here
     for (let n:number = 0; n < 5; n++)
@@ -50,15 +55,13 @@ function onReady(e:createjs.Event):void {
     for (let n:number = 0; n < 6; n++)
     {
         clouds[n] = new Layer_Clouds(stage, assetManager);
-        clouds[n].positionMe(0 + (n * 200), randomMe(50, 250)); 
+        clouds[n].positionMe(0 + (n * 200), randomMe(50, 220)); 
     }
 
     for (let n:number = 0; n < 6; n++)
     {
         buildingsTwo[n] = new Layer_BuildingsTwo(stage, assetManager);
-        buildingsTwo[n].positionMe(0 + (n * 150), 540);
-        // buildings[n]._sprite.scaleX = 2;
-        // buildings[n]._sprite.scaleY = 2;        
+        buildingsTwo[n].positionMe(0 + (n * 150), 540);               
     }
 
     for (let n:number = 0; n < 4; n++)
@@ -76,13 +79,19 @@ function onReady(e:createjs.Event):void {
         road[n].positionMe(0 + (n * 300), 600); 
     }
 
+    aliandris = new Aliandris(stage, assetManager, platform);
+
     for (let n:number = 0; n < 10; n++)
     {
         foreground[n] = new Layer_Foreground(stage, assetManager);
         foreground[n].positionMe(0 + (n * 100), 600);
     }
 
-    
+    for (let n:number = 0; n < 3; n++)
+    {
+        platform[n] = new Platform(stage, assetManager);
+        platform[n].positionMe(0 + (n * randomMe(100,600)), randomMe(300,550));
+    }
 
     // startup the ticker
     createjs.Ticker.framerate = FRAME_RATE;
@@ -118,6 +127,10 @@ function onTick(e:createjs.Event) {
     for (let n:number = 0; n < 10; n++)
     {
         foreground[n].update();
+    }
+    for (let n:number = 0; n < 3; n++)
+    {
+        platform[n].update();
     }
 
     // update the stage
