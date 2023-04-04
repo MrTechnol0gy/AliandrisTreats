@@ -18,5 +18,10 @@ export class Layer_Foreground extends Backgrounds
     }     
 
     // ------------- public methods
+    public update():void
+    {
+        this._sprite.x -= this._speed * 4;
+        this.wrapCheck();
+    }
     
 }

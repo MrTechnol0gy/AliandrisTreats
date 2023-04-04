@@ -12,6 +12,8 @@ import { Layer_Clouds } from "./Layer_Clouds";
 import { Layer_Forest } from "./Layer_Forest";
 import { Layer_Foreground } from "./Layer_Foreground";
 import { Layer_Road } from "./Layer_Road";
+import { randomMe } from "./Toolkit";
+import { Layer_BuildingsTwo } from "./Layer_BuildingsTwo";
 
 // game setup variables
 let stage:createjs.StageGL;
@@ -21,6 +23,7 @@ let assetManager:AssetManager;
 // game object variables
 let backgrounds:Backgrounds;
 let buildings:Layer_Buildings[];
+let buildingsTwo:Layer_BuildingsTwo[];
 let clouds:Layer_Clouds[];
 let forest:Layer_Forest[];
 let foreground:Layer_Foreground[];
@@ -31,6 +34,7 @@ function onReady(e:createjs.Event):void {
     console.log(">> all assets loaded – ready to add sprites to game");
 
     buildings = [];
+    buildingsTwo = [];
     forest = [];
     foreground = [];
     clouds = [];
@@ -46,16 +50,24 @@ function onReady(e:createjs.Event):void {
     for (let n:number = 0; n < 6; n++)
     {
         clouds[n] = new Layer_Clouds(stage, assetManager);
-        clouds[n].positionMe(0 + (n * 200), 100); 
+        clouds[n].positionMe(0 + (n * 200), randomMe(50, 250)); 
     }
 
-    for (let n:number = 0; n < 3; n++)
+    for (let n:number = 0; n < 6; n++)
+    {
+        buildingsTwo[n] = new Layer_BuildingsTwo(stage, assetManager);
+        buildingsTwo[n].positionMe(0 + (n * 150), 540);
+        // buildings[n]._sprite.scaleX = 2;
+        // buildings[n]._sprite.scaleY = 2;        
+    }
+
+    for (let n:number = 0; n < 4; n++)
     {
         buildings[n] = new Layer_Buildings(stage, assetManager);
-        buildings[n].positionMe(0 + (n * 300), 550);
+        buildings[n].positionMe(0 + (n * 300), 540);
         buildings[n]._sprite.scaleX = 2;
         buildings[n]._sprite.scaleY = 2;
-        buildings[n].id = n + 3;
+        buildings[n].id = n;
     }
 
     for (let n:number = 0; n < 5; n++)
@@ -90,6 +102,10 @@ function onTick(e:createjs.Event) {
     for (let n:number = 0; n < 4; n++)
     {
         forest[n].update();
+    }
+    for (let n:number = 0; n < 6; n++)
+    {
+        buildingsTwo[n].update();
     }
     for (let n:number = 0; n < 3; n++)
     {
