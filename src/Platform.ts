@@ -52,7 +52,8 @@ export class Platform
     {
         if (this._sprite.x < -this._sprite.getBounds().width)
         {
-            this._sprite.x = STAGE_WIDTH;            
+            this._sprite.x = STAGE_WIDTH;   
+            this._sprite.y = randomMe(200,500);       
         }
     }
     protected stateUpdate():void

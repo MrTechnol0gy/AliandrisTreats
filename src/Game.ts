@@ -90,7 +90,7 @@ function onReady(e:createjs.Event):void {
     for (let n:number = 0; n < 3; n++)
     {
         platform[n] = new Platform(stage, assetManager);
-        platform[n].positionMe(0 + (n * randomMe(100,600)), randomMe(300,550));
+        platform[n].positionMe(0 + (n * randomMe(175,600)), randomMe(300,550));
     }
 
     // startup the ticker

@@ -173,24 +173,23 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Idle1.png</key>
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Idle2.png</key>
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Idle3.png</key>
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Idle4.png</key>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Idle_1.png</key>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Idle_2.png</key>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Idle_3.png</key>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Idle_4.png</key>
             <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Idle_Stand.png</key>
             <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Jump.png</key>
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk.gif</key>
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk1.png</key>
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk2.png</key>
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk3.png</key>
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk4.png</key>
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk5.png</key>
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk6.png</key>
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk7.png</key>
-            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk8.png</key>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk_1.png</key>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk_2.png</key>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk_3.png</key>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk_4.png</key>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk_5.png</key>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk_6.png</key>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk_7.png</key>
+            <key type="filename">../../../../Aseprite/AliandrisTreats/Aliandris_Walk_8.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0.5,1</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -206,20 +205,19 @@
         <key>fileList</key>
         <array>
             <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Idle_Stand.png</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Idle1.png</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Idle2.png</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Idle3.png</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Idle4.png</filename>
             <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Jump.png</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk.gif</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk1.png</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk2.png</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk3.png</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk4.png</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk5.png</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk6.png</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk7.png</filename>
-            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk8.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Idle_1.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Idle_2.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Idle_3.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Idle_4.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk_1.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk_2.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk_3.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk_4.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk_5.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk_6.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk_7.png</filename>
+            <filename>../../../../Aseprite/AliandrisTreats/Aliandris_Walk_8.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
