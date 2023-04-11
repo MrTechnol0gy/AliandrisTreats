@@ -5,6 +5,7 @@ export class Aliandris
 {
     public static STATE_IDLE:number = 0;
     public static STATE_JUMPING:number = 1;
+    public static STATE_WALKING:number = 2;
     
     public static LEFT:number = 0;
     public static RIGHT:number = 1;
@@ -69,11 +70,11 @@ export class Aliandris
         this._direction = value;        
         if (this._direction == Aliandris.RIGHT) 
         {
-            this._sprite.rotation = 0;
+            this._sprite.scaleX = 1;
         }         
         else if (this._direction == Aliandris.LEFT) 
         {
-            this._sprite.rotation = 180;
+            this._sprite.scaleX = -1;
         }         
     }
 
@@ -87,8 +88,17 @@ export class Aliandris
     {
         if (this._state == Aliandris.STATE_IDLE)
         {
-            this._state = Aliandris.STATE_JUMPING;
-            //action goes here
+            this._state = Aliandris.STATE_WALKING;
+            this._moving = true;
+            //action goes here OR DOES IT
+        }
+    }
+    public jumpMe():void
+    {
+        if (this._state == Aliandris.STATE_WALKING || this._state == Aliandris.STATE_IDLE)
+        {
+            this._state = Aliandris.STATE_JUMPING
+            this._moving = true;
         }
     }
 
@@ -97,6 +107,7 @@ export class Aliandris
         if (this._state == Aliandris.STATE_JUMPING)
         {
             this._state = Aliandris.STATE_IDLE;
+            this._moving = false;
         }
     }
 
@@ -112,11 +123,22 @@ export class Aliandris
         this.stage.addChild(this._sprite);
         this._sprite.x = 50;
         this._sprite.y = 550;
-        this._sprite.gotoAndPlay("Aliandris_Idle");
+        this._sprite.gotoAndPlay("Aliandris_Idle");        
     }
 
     public update():void
     {
-
+        if (this._state == Aliandris.STATE_IDLE)
+        {
+            this._sprite.gotoAndPlay("Aliandris_Idle");
+        }
+        else if (this._state == Aliandris.STATE_WALKING)
+        {
+            this._sprite.gotoAndPlay("Aliandris_Walk");
+        }
+        else if (this._state == Aliandris.STATE_JUMPING)
+        {
+            this._sprite.gotoAndPlay("Aliandris_Jump");
+        }
     }
 }

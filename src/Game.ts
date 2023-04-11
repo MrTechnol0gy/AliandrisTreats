@@ -33,6 +33,38 @@ let road:Layer_Road[];
 let platform:Platform[];
 let aliandris:Aliandris;
 
+// key booleans
+let leftKey:boolean = false;
+let rightKey:boolean = false;
+let jumpKey:boolean = false;
+
+// current score/pickups
+let score:number;
+
+// --------------------------------------------------- private methods
+function monitorKeys():void 
+{
+    if (leftKey) 
+    {
+        //console.log("go left");
+        aliandris.direction = Aliandris.LEFT;
+        aliandris.startMe();
+    } 
+    else if (rightKey) 
+    {
+        aliandris.direction = Aliandris.RIGHT;
+        aliandris.startMe();
+    } 
+    else if (jumpKey)
+    {
+        aliandris.jumpMe();
+    }
+    else 
+    {
+        aliandris.stopMe();
+    }
+}
+
 // --------------------------------------------------- event handler
 function onReady(e:createjs.Event):void {
     console.log(">> all assets loaded – ready to add sprites to game");
@@ -93,10 +125,44 @@ function onReady(e:createjs.Event):void {
         platform[n].positionMe(0 + (n * randomMe(175,600)), randomMe(300,550));
     }
 
+    // event listeners for keyboard keys
+    document.onkeydown = onKeyDown;
+    document.onkeyup = onKeyUp;
+
     // startup the ticker
     createjs.Ticker.framerate = FRAME_RATE;
     createjs.Ticker.on("tick", onTick);        
     console.log(">> game ready");
+}
+
+function onKeyDown(e:KeyboardEvent):void {
+    if (e.key == "ArrowLeft") 
+    {
+        leftKey = true;
+    }
+    else if (e.key == "ArrowRight")
+    {
+        rightKey = true;
+    }
+    if (e.key == " ")
+    {
+        jumpKey = true;
+    }
+}
+
+function onKeyUp(e:KeyboardEvent):void {
+    if (e.key == "ArrowLeft") 
+    {
+        leftKey = false;
+    }
+    else if (e.key == "ArrowRight")
+    {
+        rightKey = false;
+    }
+    if (e.key == " ")
+    {
+        jumpKey = false;
+    }
 }
 
 function onTick(e:createjs.Event) {
@@ -104,6 +170,7 @@ function onTick(e:createjs.Event) {
     document.getElementById("fps").innerHTML = String(createjs.Ticker.getMeasuredFPS());
 
     // this is your game loop!
+    monitorKeys();
     for (let n:number = 0; n < 6; n++)
     {
         clouds[n].update();
@@ -132,7 +199,7 @@ function onTick(e:createjs.Event) {
     {
         platform[n].update();
     }
-
+    aliandris.update();
     // update the stage
     stage.update();
 }
