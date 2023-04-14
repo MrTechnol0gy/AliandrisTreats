@@ -88,14 +88,13 @@ function onReady(e:createjs.Event):void {
         forest[n].positionMe(0 + (n * 300), 600);
     }
     
-    treatManager = new TreatManager(stage, assetManager);
-
+    
     for (let n:number = 0; n < 6; n++)
     {
         clouds[n] = new Layer_Clouds(stage, assetManager);
         clouds[n].positionMe(0 + (n * 200), randomMe(50, 220)); 
     }
-
+    
     for (let n:number = 0; n < 6; n++)
     {
         buildingsTwo[n] = new Layer_BuildingsTwo(stage, assetManager);
@@ -110,7 +109,7 @@ function onReady(e:createjs.Event):void {
         buildings[n]._sprite.scaleY = 2;
         buildings[n].id = n;
     }
-
+    
     for (let n:number = 0; n < 5; n++)
     {
         road[n] = new Layer_Road(stage, assetManager);
@@ -118,33 +117,35 @@ function onReady(e:createjs.Event):void {
     }
     
     aliandris = new Aliandris(stage, assetManager, platform);
-
+    
     for (let n:number = 0; n < 5; n++)
     {
         treat[n] = new Treat(stage, assetManager, aliandris);
         treat[n].positionMe(0 + (n * 300), randomMe(200,520)); 
     }
-
-
+    
+    
     for (let n:number = 0; n < 10; n++)
     {
         foreground[n] = new Layer_Foreground(stage, assetManager);
         foreground[n].positionMe(0 + (n * 100), 600);
     }
-
+    
     for (let n:number = 0; n < 3; n++)
     {
         platform[n] = new Platform(stage, assetManager);
         platform[n].positionMe(0 + (n * randomMe(175,600)), randomMe(300,550));
     }
+    
+    treatManager = new TreatManager(stage, assetManager);
 
     // event listeners for keyboard keys
     document.onkeydown = onKeyDown;
     document.onkeyup = onKeyUp;
-
+    
     // other event listeners
     stage.on("collected", onCollected); // step four; listens for collected and calls collected method
-
+    
     // startup the ticker
     createjs.Ticker.framerate = FRAME_RATE;
     createjs.Ticker.on("tick", onTick);        
