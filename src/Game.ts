@@ -16,6 +16,7 @@ import { randomMe } from "./Toolkit";
 import { Layer_BuildingsTwo } from "./Layer_BuildingsTwo";
 import { Platform } from "./Platform";
 import { Aliandris } from "./Aliandris";
+import { Treat } from "./Treat";
 
 // game setup variables
 let stage:createjs.StageGL;
@@ -32,6 +33,7 @@ let foreground:Layer_Foreground[];
 let road:Layer_Road[];
 let platform:Platform[];
 let aliandris:Aliandris;
+let treat:Treat[];
 
 // key booleans
 let leftKey:boolean = false;
@@ -46,13 +48,7 @@ let speed:number;
 // --------------------------------------------------- private methods
 function monitorKeys():void 
 {
-    if (leftKey) 
-    {
-        //console.log("go left");
-        aliandris.direction = Aliandris.LEFT;
-        aliandris.startMe();
-    } 
-    else if (rightKey) 
+    if (rightKey) 
     {
         aliandris.direction = Aliandris.RIGHT;
         aliandris.startMe();
@@ -78,6 +74,7 @@ function onReady(e:createjs.Event):void {
     clouds = [];
     road = [];
     platform = [];
+    treat = [];
     
     // construct game objects here
     backgrounds = new Backgrounds(stage, assetManager)
@@ -113,6 +110,12 @@ function onReady(e:createjs.Event):void {
     {
         road[n] = new Layer_Road(stage, assetManager);
         road[n].positionMe(0 + (n * 300), 600); 
+    }
+
+    for (let n:number = 0; n < 5; n++)
+    {
+        treat[n] = new Treat(stage, assetManager);
+        treat[n].positionMe(0 + (n * 300), randomMe(200,520)); 
     }
 
     aliandris = new Aliandris(stage, assetManager, platform);
@@ -203,6 +206,10 @@ function onTick(e:createjs.Event) {
         road[n].speed = speed;
         road[n].update();
     }
+    for (let n:number = 0; n < 4; n++)
+    {        
+        treat[n].update();
+    }
     for (let n:number = 0; n < 10; n++)
     {
         foreground[n].speed = speed;
@@ -214,7 +221,7 @@ function onTick(e:createjs.Event) {
         platform[n].update();
     }
     aliandris.update();
-    
+
     // update the stage
     stage.update();
 }

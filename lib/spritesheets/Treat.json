@@ -1,0 +1,21 @@
+{
+
+"images": [
+    "Treat.png"
+],
+
+"framerate": 30,
+"frames": [
+    [1, 1, 30, 30, 0, 15, 15]
+],
+
+"animations": {
+    "PickUp": { "frames": [0] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:ec1bc1806305ac38f9c3be2539590779:84348317856a1bb85e4407acc102a96a:8ee8472512adfd59117ddc55afd60598$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

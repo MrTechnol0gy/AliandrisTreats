@@ -133,7 +133,7 @@ export class Aliandris
     }
 
     public update():void
-    {
+    {        
         //collision detection goes here
     }
 }
