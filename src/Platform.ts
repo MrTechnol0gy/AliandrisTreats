@@ -70,7 +70,7 @@ export class Platform
 
     public update():void
     {
-        this._sprite.x -= this._speed + randomMe(1,2);
+        this._sprite.x -= this._speed;
         this.stateUpdate();
         this.wrapCheck();
     }

@@ -41,6 +41,8 @@ let jumpKey:boolean = false;
 // current score/pickups
 let score:number;
 
+let speed:number;
+
 // --------------------------------------------------- private methods
 function monitorKeys():void 
 {
@@ -78,6 +80,8 @@ function onReady(e:createjs.Event):void {
     platform = [];
     
     // construct game objects here
+    backgrounds = new Backgrounds(stage, assetManager)
+
     for (let n:number = 0; n < 5; n++)
     {
         forest[n] = new Layer_Forest(stage, assetManager);
@@ -171,35 +175,46 @@ function onTick(e:createjs.Event) {
 
     // this is your game loop!
     monitorKeys();
+
+    speed = aliandris.speed;
+    
     for (let n:number = 0; n < 6; n++)
     {
+        clouds[n].speed = speed;
         clouds[n].update();
     }
     for (let n:number = 0; n < 4; n++)
     {
+        forest[n].speed = speed;
         forest[n].update();
     }
     for (let n:number = 0; n < 6; n++)
     {
+        buildingsTwo[n].speed = speed;
         buildingsTwo[n].update();
     }
     for (let n:number = 0; n < 3; n++)
     {
+        buildings[n].speed = speed;
         buildings[n].update();
     }
     for (let n:number = 0; n < 4; n++)
     {
+        road[n].speed = speed;
         road[n].update();
     }
     for (let n:number = 0; n < 10; n++)
     {
+        foreground[n].speed = speed;
         foreground[n].update();
     }
     for (let n:number = 0; n < 3; n++)
     {
+        platform[n].speed = speed;
         platform[n].update();
     }
     aliandris.update();
+    
     // update the stage
     stage.update();
 }

@@ -25,7 +25,7 @@ export class Aliandris
         this.stage = stage;
         this.platform = platform;
         this._state = Aliandris.STATE_IDLE;
-        this._speed = 1;
+        this._speed = 0;
         this._moving = false;
         this._direction = Aliandris.RIGHT;
 
@@ -88,8 +88,10 @@ export class Aliandris
     {
         if (this._state == Aliandris.STATE_IDLE)
         {
-            this._state = Aliandris.STATE_WALKING;
             this._moving = true;
+            this._state = Aliandris.STATE_WALKING;
+            this._sprite.gotoAndPlay("Aliandris_Walk");
+            this._speed = 1;
             //action goes here OR DOES IT
         }
     }
@@ -97,8 +99,10 @@ export class Aliandris
     {
         if (this._state == Aliandris.STATE_WALKING || this._state == Aliandris.STATE_IDLE)
         {
-            this._state = Aliandris.STATE_JUMPING
             this._moving = true;
+            this._state = Aliandris.STATE_JUMPING
+            this._sprite.gotoAndPlay("Aliandris_Jump");
+            this._speed = 1;
         }
     }
 
@@ -108,6 +112,8 @@ export class Aliandris
         {
             this._state = Aliandris.STATE_IDLE;
             this._moving = false;
+            this._sprite.gotoAndPlay("Aliandris_Idle");
+            this._speed = 0;
         }
     }
 
@@ -128,17 +134,6 @@ export class Aliandris
 
     public update():void
     {
-        if (this._state == Aliandris.STATE_IDLE)
-        {
-            this._sprite.gotoAndPlay("Aliandris_Idle");
-        }
-        else if (this._state == Aliandris.STATE_WALKING)
-        {
-            this._sprite.gotoAndPlay("Aliandris_Walk");
-        }
-        else if (this._state == Aliandris.STATE_JUMPING)
-        {
-            this._sprite.gotoAndPlay("Aliandris_Jump");
-        }
+        //collision detection goes here
     }
 }
