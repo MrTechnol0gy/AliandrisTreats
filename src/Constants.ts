@@ -39,5 +39,17 @@ export const ASSET_MANIFEST:Object[] = [
         src: "./lib/spritesheets/Treat.png",
         id:"treat",
         data:0
-    }
+    },
+    {
+        type:"json",
+        src:"./lib/spritesheets/aliglyphs.json",
+        id:"glyphs",
+        data:0
+    },
+    {
+        type:"image",
+        src:"./lib/spritesheets/aliglyphs.png",
+        id:"glyphs",
+        data:0
+    },
 ];

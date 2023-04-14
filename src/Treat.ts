@@ -1,30 +1,39 @@
+import { Aliandris } from "./Aliandris";
 import { AssetManager } from "./AssetManager";
 import { STAGE_WIDTH } from "./Constants";
 import { randomMe } from "./Toolkit";
+import { boxHit } from "./Toolkit";
 
 export class Treat
 {    
     public static STATE_ACTIVE:number = 0;
     public static STATE_INACTIVE:number = 1;
+    public static STATE_COLLECTED:number = 2;
 
     //private property variables
     private _sprite:createjs.Sprite;  
     private _speed:number; 
     private _state:number; 
+    private aliandris:Aliandris;
+
+    private collected:createjs.Event //step one for creating a custom collection event
 
     //other globals
     private stage:createjs.StageGL;
 
-    constructor(stage:createjs.StageGL, assetManager:AssetManager)
+    constructor(stage:createjs.StageGL, assetManager:AssetManager, aliandris:Aliandris)
     {
         //initialization of properties
         this.stage = stage;  
         this._speed = 1; 
-        this._state = Treat.STATE_INACTIVE;     
+        this._state = Treat.STATE_INACTIVE;  
+        this.aliandris = aliandris;   
 
         this._sprite = assetManager.getSprite("treat", "PickUp");
 
         stage.addChild(this._sprite);
+
+        this.collected = new createjs.Event("collected", true, false); // step two for creating a custom event
     }
     // ---------- gets/sets
     get sprite()
@@ -67,10 +76,27 @@ export class Treat
         }
     }
 
+    private collectedMe():void
+    {
+        this._sprite.dispatchEvent(this.collected); //step three for custom collection event
+    }
+
     public update():void
     {
         this._sprite.x -= this._speed;
         this.stateUpdate();
         this.wrapCheck();
+        if (this._state == Treat.STATE_ACTIVE && boxHit(this._sprite, this.aliandris.sprite))
+        {
+            this.collectedMe();
+        }
+        if (this._sprite.x > STAGE_WIDTH || this._sprite.x < 0)
+        {
+            this._state = Treat.STATE_INACTIVE;            
+        }
+        else
+        {
+            this._state = Treat.STATE_ACTIVE;            
+        }
     }
 }

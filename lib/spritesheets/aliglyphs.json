@@ -1,0 +1,51 @@
+{
+
+"images": [
+    "aliglyphs.png"
+],
+
+"framerate": 30,
+"frames": [
+    [0, 0, 7, 17, 0, 0, 4],
+    [7, 0, 13, 25, 0, 0, 9],
+    [20, 0, 15, 25, 0, 0, 9],
+    [35, 0, 16, 25, 0, 0, 9],
+    [51, 0, 15, 26, 0, 0, 10],
+    [66, 0, 16, 25, 0, 0, 9],
+    [82, 0, 19, 23, 0, 0, 8],
+    [101, 0, 16, 26, 0, 0, 9],
+    [0, 26, 14, 28, 0, 0, 11],
+    [14, 26, 17, 25, 0, 0, 8],
+    [31, 26, 16, 27, 0, 0, 9],
+    [47, 26, 23, 30, 0, 0, 12],
+    [70, 26, 19, 35, 0, 0, 13],
+    [89, 26, 25, 30, 0, 0, 11],
+    [0, 61, 30, 33, 0, 0, 14],
+    [30, 61, 33, 32, 0, 0, 13]
+],
+
+"animations": {
+    "0": { "frames": [6] },
+    "1": { "frames": [1] },
+    "2": { "frames": [3] },
+    "3": { "frames": [2] },
+    "4": { "frames": [7] },
+    "5": { "frames": [4] },
+    "6": { "frames": [8] },
+    "7": { "frames": [9] },
+    "8": { "frames": [5] },
+    "9": { "frames": [10] },
+    "-": { "frames": [0] },
+    "E": { "frames": [11] },
+    "S": { "frames": [12] },
+    "T": { "frames": [13] },
+    "A": { "frames": [14] },
+    "R": { "frames": [15] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:c5cc1db78ea449002dbf387c181fc442:07f133db59e2de906f1131ceb7e99f99:163802cea6fbd8749e16d78adc9f7cfc$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

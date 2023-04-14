@@ -17,6 +17,7 @@ import { Layer_BuildingsTwo } from "./Layer_BuildingsTwo";
 import { Platform } from "./Platform";
 import { Aliandris } from "./Aliandris";
 import { Treat } from "./Treat";
+import { TreatManager } from "./TreatManager";
 
 // game setup variables
 let stage:createjs.StageGL;
@@ -34,6 +35,7 @@ let road:Layer_Road[];
 let platform:Platform[];
 let aliandris:Aliandris;
 let treat:Treat[];
+let treatManager:TreatManager;
 
 // key booleans
 let leftKey:boolean = false;
@@ -41,7 +43,7 @@ let rightKey:boolean = false;
 let jumpKey:boolean = false;
 
 // current score/pickups
-let score:number;
+//let score:number;
 
 let speed:number;
 
@@ -77,13 +79,16 @@ function onReady(e:createjs.Event):void {
     treat = [];
     
     // construct game objects here
-    backgrounds = new Backgrounds(stage, assetManager)
+    backgrounds = new Backgrounds(stage, assetManager);
 
+    
     for (let n:number = 0; n < 5; n++)
     {
         forest[n] = new Layer_Forest(stage, assetManager);
         forest[n].positionMe(0 + (n * 300), 600);
     }
+    
+    treatManager = new TreatManager(stage, assetManager);
 
     for (let n:number = 0; n < 6; n++)
     {
@@ -111,14 +116,15 @@ function onReady(e:createjs.Event):void {
         road[n] = new Layer_Road(stage, assetManager);
         road[n].positionMe(0 + (n * 300), 600); 
     }
+    
+    aliandris = new Aliandris(stage, assetManager, platform);
 
     for (let n:number = 0; n < 5; n++)
     {
-        treat[n] = new Treat(stage, assetManager);
+        treat[n] = new Treat(stage, assetManager, aliandris);
         treat[n].positionMe(0 + (n * 300), randomMe(200,520)); 
     }
 
-    aliandris = new Aliandris(stage, assetManager, platform);
 
     for (let n:number = 0; n < 10; n++)
     {
@@ -135,6 +141,9 @@ function onReady(e:createjs.Event):void {
     // event listeners for keyboard keys
     document.onkeydown = onKeyDown;
     document.onkeyup = onKeyUp;
+
+    // other event listeners
+    stage.on("collected", onCollected); // step four; listens for collected and calls collected method
 
     // startup the ticker
     createjs.Ticker.framerate = FRAME_RATE;
@@ -170,6 +179,11 @@ function onKeyUp(e:KeyboardEvent):void {
     {
         jumpKey = false;
     }
+}
+
+function onCollected(e:createjs.Event):void //step five; function to increment treats on pickup
+{
+    treatManager.incrementAmount();
 }
 
 function onTick(e:createjs.Event) {
