@@ -122,6 +122,7 @@ function onReady(e:createjs.Event):void {
     {
         treat[n] = new Treat(stage, assetManager, aliandris);
         treat[n].positionMe(0 + (n * 300), randomMe(200,520)); 
+        treat[n].startMe();
     }
     
     

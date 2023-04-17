@@ -10,9 +10,7 @@ export class TreatManager
     constructor(stage:createjs.StageGL, assetManager:AssetManager)
     {
         this._treat = 0;
-        // this.txtText = "TREATS:";
-
-        //this._sprite = assetManager.getSprite("sprites", "Scoretxt", 50, 362);
+        
         this.txtAmount = new createjs.BitmapText("0", assetManager.getSpriteSheet("glyphs")); //"glyphs" is the associated ID of the sprites
         this.txtText = new createjs.BitmapText("TREATS:", assetManager.getSpriteSheet("glyphs"));
         this.txtAmount.letterSpacing = 1;
@@ -21,8 +19,7 @@ export class TreatManager
         this.txtText.x = 10;
         this.txtText.y = 20;
         stage.addChild(this.txtAmount);
-        stage.addChild(this.txtText);
-        //stage.addChild(this._sprite);
+        stage.addChild(this.txtText);        
     }
 
     get score()

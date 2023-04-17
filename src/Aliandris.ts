@@ -17,6 +17,7 @@ export class Aliandris
     private _speed:number;
     private _direction:number;
     private _moving:boolean;
+    private _gravity:boolean;
 
     private stage:createjs.StageGL;
 
@@ -28,6 +29,7 @@ export class Aliandris
         this._speed = 0;
         this._moving = false;
         this._direction = Aliandris.RIGHT;
+        this._gravity = true;
 
         this._sprite = assetManager.getSprite("aliandris", "Aliandris_Idle", 100, 550);
         this._sprite.play();

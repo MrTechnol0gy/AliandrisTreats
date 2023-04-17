@@ -56,12 +56,18 @@ export class Treat
         this._sprite.y = y;
     }
 
+    public startMe():void
+    {
+        createjs.Tween.get(this._sprite, {bounce:true, loop: -1, useTicks:true}).to({y:this._sprite.y+25}, 100, createjs.Ease.backInOut);        
+    }
+
     protected wrapCheck():void
     {
         if (this._sprite.x < -this._sprite.getBounds().width)
         {
             this._sprite.x = STAGE_WIDTH;   
-            this._sprite.y = randomMe(200,500);       
+            this._sprite.y = randomMe(200,500);  
+            this.startMe();     
         }
     }
     protected stateUpdate():void
