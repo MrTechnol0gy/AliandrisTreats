@@ -38,7 +38,7 @@ let treat:Treat[];
 let treatManager:TreatManager;
 
 // key booleans
-let leftKey:boolean = false;
+let leftKey:boolean = false; // placeholder should control scheme change
 let rightKey:boolean = false;
 let jumpKey:boolean = false;
 

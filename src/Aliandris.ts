@@ -85,6 +85,23 @@ export class Aliandris
         return this._direction;
     }
 
+    set gravity(boolean:any)
+    {
+        if (boolean == true)
+        {
+            this._gravity = true;
+        }
+        else 
+        {
+            this._gravity = false;
+        }
+    }
+
+    get gravity()
+    {
+        return this._gravity;
+    }
+
     // --------- public methods
     public startMe():void
     {
@@ -125,17 +142,35 @@ export class Aliandris
         this._sprite.y = y;
     }
 
+    public gravityAppliesToMe():void
+    {
+        this._sprite.y++;
+    }
+
+    public groundCheck():void
+    {
+        if (this._sprite.y >= 550)
+        {
+            this._sprite.y = 550;            
+        }
+    }
+
     public resetMe():void
     {
         this._state = Aliandris.STATE_IDLE;
         this.stage.addChild(this._sprite);
         this._sprite.x = 50;
         this._sprite.y = 550;
-        this._sprite.gotoAndPlay("Aliandris_Idle");        
+        this._sprite.gotoAndPlay("Aliandris_Idle");
     }
 
     public update():void
-    {        
+    {     
+        this.groundCheck();
+        if (this._gravity = true) 
+        {
+            this.gravityAppliesToMe();
+        }  
         //collision detection goes here
     }
 }
