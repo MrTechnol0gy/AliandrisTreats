@@ -122,6 +122,8 @@ export class Aliandris
             this._state = Aliandris.STATE_JUMPING
             this._sprite.gotoAndPlay("Aliandris_Jump");
             this._speed = 1;
+            this._gravity = false;
+            //createjs.Tween.get(this._sprite, {bounce:true, loop:-1, useTicks:true}).to({this:this._sprite.y+75}, 50, createjs.Ease.backInOut);
         }
     }
 
@@ -133,6 +135,7 @@ export class Aliandris
             this._moving = false;
             this._sprite.gotoAndPlay("Aliandris_Idle");
             this._speed = 0;
+            this._gravity = true;
         }
     }
 

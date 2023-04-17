@@ -123,8 +123,7 @@ function onReady(e:createjs.Event):void {
         treat[n] = new Treat(stage, assetManager, aliandris);
         treat[n].positionMe(0 + (n * 300), randomMe(200,520)); 
         treat[n].startMe();
-    }
-    
+    }    
     
     for (let n:number = 0; n < 10; n++)
     {
@@ -149,7 +148,7 @@ function onReady(e:createjs.Event):void {
     
     // startup the ticker
     createjs.Ticker.framerate = FRAME_RATE;
-    createjs.Ticker.on("tick", onTick);        
+    createjs.Ticker.on("tick", onTick);
     console.log(">> game ready");
 }
 
