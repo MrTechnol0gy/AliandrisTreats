@@ -38,6 +38,6 @@ export class TreatManager
         //createjs.Sound.play("scoreUp");
         this._treat++;
         console.log("Score is " + this._treat);
-        this.txtAmount.text = String(this.txtText.text + this._treat);
+        this.txtAmount.text = String(this._treat);
     }
 }
