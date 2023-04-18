@@ -52,4 +52,16 @@ export const ASSET_MANIFEST:Object[] = [
         id:"glyphs",
         data:0
     },
+    {
+        type:"sound",
+        src:"./lib/sounds/aliJump.wav",
+        id:"aliJump",
+        data:1 //number of audio channels/audio 'layer'
+    },
+    {
+        type:"sound",
+        src:"./lib/sounds/treatBite.wav",
+        id:"treatBite",
+        data:1
+    },
 ];

@@ -24,10 +24,10 @@ export class Treat
     constructor(stage:createjs.StageGL, assetManager:AssetManager, aliandris:Aliandris)
     {
         //initialization of properties
-        this.stage = stage;  
-        this._speed = 1; 
-        this._state = Treat.STATE_INACTIVE;  
-        this.aliandris = aliandris;   
+        this.stage = stage;
+        this._speed = 1;
+        this._state = Treat.STATE_INACTIVE;
+        this.aliandris = aliandris;
 
         this._sprite = assetManager.getSprite("treat", "PickUp");
 
@@ -84,7 +84,14 @@ export class Treat
 
     private collectedMe():void
     {
-        this._sprite.dispatchEvent(this.collected); //step three for custom collection event
+        if (this._state == Treat.STATE_ACTIVE)
+        {
+            this._sprite.dispatchEvent(this.collected); //step three for custom collection event
+            this._state = Treat.STATE_COLLECTED;
+            createjs.Sound.play("treatBite");
+            this.stage.removeChild(this._sprite);
+            //this._sprite.removeEventListener;
+        }
     }
 
     public update():void

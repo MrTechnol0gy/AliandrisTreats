@@ -111,6 +111,7 @@ export class Aliandris
             this._state = Aliandris.STATE_WALKING;
             this._sprite.gotoAndPlay("Aliandris_Walk");
             this._speed = 1;
+            this._gravity = true;
             //action goes here OR DOES IT
         }
     }
@@ -121,9 +122,10 @@ export class Aliandris
             this._moving = true;
             this._state = Aliandris.STATE_JUMPING
             this._sprite.gotoAndPlay("Aliandris_Jump");
+            createjs.Sound.play("aliJump");
             this._speed = 1;
-            this._gravity = false;
-            //createjs.Tween.get(this._sprite, {bounce:true, loop:-1, useTicks:true}).to({this:this._sprite.y+75}, 50, createjs.Ease.backInOut);
+            this._gravity = false;            
+            createjs.Tween.get(this._sprite, {bounce:true, loop:1, useTicks:true}).to({y:400}, 50, createjs.Ease.backOut);
         }
     }
 
